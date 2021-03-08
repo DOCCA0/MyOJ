@@ -1,24 +1,28 @@
 #include<iostream>
+#include <stdio.h>
 #include<algorithm>
+#include <map>
 using namespace std;
-int maxn=1e6+5;
-int main(int argc, char const *argv[])
+const int maxn=1e5+5;
+int main()
 {
      int n,m,res;
-     cin>>n>>m;
-     int arr[maxn];
-     // fill_n(arr,maxn,0);
-     for(int i=0;i<n;i++){
-         cin>>arr[i];
-     }
-     for (int i = 0; i < m; i++)
-     {
-         int t;
-         res=lower_bound(arr,arr+n,t)-arr;
-     }
-     if(res!=n)
-         cout<<res<<' ';
-     else
-         cout<<-1<<' ';
-     return 0;
+     scanf("%d %d",&n,&m);
+     map<int,int> map;
+    for (int i = 1; i <= n; ++i) {
+        int t;
+        scanf("%d",&t);
+        if (!map.count(t)){
+            map.insert({t,i});
+        }
+    }
+    for (int i = 0; i < m; ++i) {
+        int t;
+        cin>>t;
+        if (map.count(t)){
+            cout<<map[t]<<' ';
+        }else{
+            cout<<-1<<' ';
+        }
+    }
 }
