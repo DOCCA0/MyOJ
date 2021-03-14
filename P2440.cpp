@@ -31,11 +31,11 @@ int erfen(int l,int r){
 }
 int main(){
     cin>>n>>k;
-    int l=0,r=100000000;
+    int l=0,r=0;
     for (int i = 0; i < n; ++i) {
         int t;
         scanf("%d",&t);
-        r=min(r,t);
+        r=max(r,t);
         v.push_back(t);
     }
     cout<<erfen(l,r+1)<<endl;
